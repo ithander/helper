@@ -1,12 +1,12 @@
-package org.ithang.service.kvalues.entity;
+package org.ithang.service.logic_sql.entity;
 
 import org.ithang.tools.mate.Table;
 
-@Table("kvalues")
-public class KValues {
+@Table("logic_sql")
+public class LogicSQL {
 
-	private String key;//键
-	private String value;//值
+	private String key;//key
+	private String content;//SQL
 	private String opt;//备注
 	
 	public String getKey() {
@@ -15,11 +15,11 @@ public class KValues {
 	public void setKey(String key) {
 		this.key = key;
 	}
-	public String getValue() {
-		return value;
+	public String getContent() {
+		return content;
 	}
-	public void setValue(String value) {
-		this.value = value;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public String getOpt() {
 		return opt;
@@ -27,6 +27,5 @@ public class KValues {
 	public void setOpt(String opt) {
 		this.opt = opt;
 	}
-	
 	
 }

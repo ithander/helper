@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.ithang.service.kvalues.KValuesService;
 import org.ithang.service.kvalues.entity.KValues;
+import org.ithang.tools.lang.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -20,6 +21,7 @@ public class InitApp implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments arg0) throws Exception {
 		List<KValues> values=kvaluesService.list();
+		System.out.println(JsonUtils.toJsonStr(values));
 	}
 
 }

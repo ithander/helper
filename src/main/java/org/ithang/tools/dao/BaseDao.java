@@ -16,6 +16,7 @@ public class BaseDao<T> extends Dao {
 	 * 查询所有数据
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public List<T> list(){
 		final Class<T> type=(Class<T>)((ParameterizedType)this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 		ModelSQL ms=ModTools.getModelSQL(type);
@@ -28,6 +29,7 @@ public class BaseDao<T> extends Dao {
 					t=type.newInstance();
 					Field[] fields=type.getDeclaredFields();
 					for(Field field:fields){
+						field.setAccessible(true);
 						field.set(t, rs.getObject(field.getName()));
 					}
 				}catch(Exception e){
