@@ -1,8 +1,14 @@
 package org.ithang.tools.dao;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
+
+import org.ithang.tools.gener.ModTools;
+import org.ithang.tools.gener.ModelSQL;
+import org.springframework.jdbc.core.RowMapper;
 
 public class BaseDao<T> extends Dao {
 
@@ -11,9 +17,27 @@ public class BaseDao<T> extends Dao {
 	 * @return
 	 */
 	public List<T> list(){
-		Class<T> type=(Class<T>)((ParameterizedType)this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-		System.out.println("eee="+type.getName());
-		return null;
+		final Class<T> type=(Class<T>)((ParameterizedType)this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+		ModelSQL ms=ModTools.getModelSQL(type);
+		return getJdbcTemplate().query("select * from "+ms.getTableName(),new RowMapper<T>(){
+
+			@Override
+			public T mapRow(ResultSet rs, int index) throws SQLException {
+				T t=null;
+				try{
+					t=type.newInstance();
+					Field[] fields=type.getDeclaredFields();
+					for(Field field:fields){
+						field.set(t, rs.getObject(field.getName()));
+					}
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+				
+				return t;
+			}
+			
+		});
 	}
 	
 	/**
