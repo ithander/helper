@@ -1,41 +1,22 @@
 package org.ithang.tools.dao;
 
-import javax.sql.DataSource;
+public class BaseDao<T> extends Dao {
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.stereotype.Component;
-
-@Component
-public class BaseDao {
-
-    private static JdbcTemplate jdbcTemplate;
 	
-    private static NamedParameterJdbcTemplate namedJdbcTemplate;
-
-    public BaseDao(){}
-    
-	@Autowired
-	public BaseDao(DataSource dataSource){
-		BaseDao.jdbcTemplate=new JdbcTemplate(dataSource);
-		BaseDao.namedJdbcTemplate=new NamedParameterJdbcTemplate(dataSource);
+	public String insert(T... bean){
+		return null;
 	}
-
-	public static JdbcTemplate getJdbcTemplate() {
-		return jdbcTemplate;
+	
+	public int update(T... bean){
+		return 0;
 	}
-
-	public static void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		BaseDao.jdbcTemplate = jdbcTemplate;
+	
+    public int delete(Integer... id){
+    	return 0;
 	}
-
-	public static NamedParameterJdbcTemplate getNamedJdbcTemplate() {
-		return namedJdbcTemplate;
-	}
-
-	public static void setNamedJdbcTemplate(NamedParameterJdbcTemplate namedJdbcTemplate) {
-		BaseDao.namedJdbcTemplate = namedJdbcTemplate;
+	
+	public int delete(String... id){
+		return 0;
 	}
 	
 }

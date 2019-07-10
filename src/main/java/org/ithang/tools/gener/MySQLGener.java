@@ -9,7 +9,7 @@ import java.util.Map;
 
 import org.codehaus.groovy.control.CompilationFailedException;
 import org.ithang.entity.TPerson;
-import org.ithang.tools.dao.BaseDao;
+import org.ithang.tools.dao.Dao;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -47,7 +47,7 @@ public class MySQLGener {
 			bind.put("clsName", tableName);
 			bind.put("fields", null);
 			
-			JdbcTemplate jdbcTemplate=BaseDao.getJdbcTemplate();
+			JdbcTemplate jdbcTemplate=Dao.getJdbcTemplate();
 			jdbcTemplate.query("SHOW FULL COLUMNS FROM "+tableName, new RowMapper<ModelBean>(){
 
 				@Override
@@ -83,7 +83,7 @@ public class MySQLGener {
 	public static void main(String[] args) {
 		System.out.println(FTL.getBeanFTL());
 		TPerson tp=new TPerson();
-		
+		System.out.println(tp);
 	}
 }
 
