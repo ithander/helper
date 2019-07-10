@@ -1,0 +1,37 @@
+CREATE TABLE `user_info` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`uname` VARCHAR(50) NOT NULL DEFAULT '' COMMENT '账号',
+	`upass` VARCHAR(50) NOT NULL DEFAULT '' COMMENT '密码',
+	`title` VARCHAR(50) NOT NULL DEFAULT '' COMMENT '名称',
+	`email` VARCHAR(60) NOT NULL DEFAULT '',
+	`create_time` VARCHAR(30) NOT NULL DEFAULT '' COMMENT '创建时间',
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=2
+;
+
+
+
+CREATE TABLE `kvalues` (
+	`key` VARCHAR(50) NOT NULL,
+	`value` VARCHAR(300) NOT NULL,
+	`opt` VARCHAR(300) NULL DEFAULT NULL,
+	PRIMARY KEY (`key`)
+)
+COLLATE='utf8mb4_general_ci'
+COMMENT='键值表'
+ENGINE=InnoDB
+;
+
+
+CREATE TABLE `logic_sql` (
+	`key` VARCHAR(150) NOT NULL,
+	`content` LONGTEXT NULL,
+	PRIMARY KEY (`key`)
+)
+COLLATE='utf8mb4_general_ci'
+COMMENT='复杂的SQL'
+ENGINE=InnoDB
+;
