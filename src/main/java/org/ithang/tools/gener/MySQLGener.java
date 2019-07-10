@@ -40,7 +40,7 @@ public class MySQLGener {
 	 * 生成Bean
 	 * @param tableName
 	 */
-	public String printBean(String tableName){
+	public static String printBean(String tableName){
 		try{
 			Map<String,Object> bind=new HashMap<>();
 			bind.put("clsName", tableName);
@@ -73,14 +73,30 @@ public class MySQLGener {
 	 * 生成service
 	 * @param tableName
 	 */
-	public void processServices(String ... tableName){
+	public static void processServices(String ... tableName){
 		
 		
 	}
 	
-	
-	public static void main(String[] args) {
-		System.out.println(FTL.getBeanFTL());
+	/**
+	 * 处理模板和数据 产生结果
+	 * @param template
+	 * @param bind
+	 * @return
+	 */
+	public static String process(String template,Map<String,Object> bind) {
+		try{
+			Template tempTemplate=engine.createTemplate(template);
+			Writable result= tempTemplate.make(bind);
+			StringWriter sw = new StringWriter();
+			result.writeTo(sw);
+			String rs=sw.toString();
+			sw.close();
+			return rs;
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 }
 
