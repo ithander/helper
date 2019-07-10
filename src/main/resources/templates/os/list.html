@@ -1,0 +1,38 @@
+<table class="easyui-datagrid" title="操作系统管理" style="width:700px;height:250px"
+            data-options="rownumbers:true,fit:true,singleSelect:true,url:'datagrid_data1.json',method:'get',toolbar:toolbar">
+        <thead>
+            <tr>
+                <th data-options="field:'itemid',width:120">系统名称</th>
+                <th data-options="field:'productid',width:100,align:'center'">系统类型</th>
+                <th data-options="field:'listprice',width:120,align:'center'">外网IP</th>
+                <th data-options="field:'unitcost',width:120,align:'center'">内网IP</th>
+                <th data-options="field:'attr1',width:120,align:'center'">运维人员</th>
+                <th data-options="field:'status',width:75,align:'center'">维护日志</th>
+                <th data-options="field:'last_time',width:150,align:'center'">最后启动时间</th>
+            </tr>
+        </thead>
+    </table>
+    
+<script type="text/javascript">
+        var toolbar = [{
+            text:'新增',
+            iconCls:'icon-add',
+            handler:function(){alert('add')}
+        },{
+            text:'修改',
+            iconCls:'icon-edit',
+            handler:function(){alert('cut')}
+        },'-',{
+            text:'删除',
+            iconCls:'icon-clear',
+            handler:function(){alert('save')}
+        },'-',{
+            text:'关机',
+            iconCls:'icon-shutdown',
+            handler:function(){alert('shutdown')}
+        },{
+            text:'重启',
+            iconCls:'icon-reload',
+            handler:function(){alert('reload')}
+        }];
+    </script>

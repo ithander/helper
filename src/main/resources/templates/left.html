@@ -1,0 +1,41 @@
+<div id="menus" data-options="fit:true" class="easyui-accordion">
+           <div title="远程管理" data-options="iconCls:'icon-system'">
+		        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="redhat" href="javascript:void(0)" onclick="changeCenterPanel('redhat')" class="button button-raised button-royal">RedHat</a></p>
+		        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="centos" href="javascript:void(0)" onclick="changeCenterPanel('centos')" class="button button-raised button-royal">CentOS</a></p>
+		        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="debian" href="javascript:void(0)" onclick="changeCenterPanel('debian')" class="button button-raised button-royal">Debain</a></p>
+            </div>
+
+            <div title="系统监控" data-options="iconCls:'icon-monitor'" >
+			    <h3 style="color:#0099FF;">Accordion for jQuery</h3>
+			        <p>Accordion is a part of easyui framework for jQuery.
+			        It lets you define your accordion component on web page more easily.</p>
+            </div>
+            <div title="监控设置" data-options="iconCls:'icon-setup'">
+		      content3
+            </div>
+            <div title="代码管理" data-options="iconCls:'icon-setup',selected:true">
+		        <ul class="easyui-tree">
+                    <li onclick="changeCenterPanel('code/beans')">业务实体</li>
+                    <li onclick="changeCenterPanel('code/mappers')">MybatisMaper</li>
+                    <li onclick="changeCenterPanel('code/xmls')">MybatisXML</li>
+                </ul>
+            </div>
+            <div title="用户管理" data-options="iconCls:'icon-user'">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+		        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="changeCenterPanel('sys')" class="button button-raised button-royal">管理平台用户</a></p>
+		        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" class="button button-raised button-royal">管理平台用户</a></p>
+            </div>
+            <div title="系统设置" data-options="iconCls:'icon-setup'">
+                <ul class="easyui-tree">
+                    <li onclick="changeCenterPanel('code/beans')">键值管理</li>
+                    <li><a href="logout">退出系统</a></li>
+                </ul>
+            </div>
+</div>
+
+<script type="text/javascript">
+    function changeCenterPanel(url){
+    	$('body').layout('panel','center').panel('refresh',url);
+    }
+</script>

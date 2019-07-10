@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>&nbsp;</title>
+</head>
+<body>
+    <div id="sm" class="easyui-sidemenu" data-options="data:data"></div>
+    
+    <script type="text/javascript">
+        var data = [{
+            text: 'Item1',
+            iconCls: 'icon-sum',
+            state: 'open',
+            children: [{
+                text: 'Option1'
+            },{
+                text: 'Option2'
+            },{
+                text: 'Option3',
+                children: [{
+                    text: 'Option31'
+                },{
+                    text: 'Option32'
+                }]
+            }]
+        },{
+            text: 'Item2',
+            iconCls: 'icon-more',
+            children: [{
+                text: 'Option4'
+            },{
+                text: 'Option5'
+            },{
+                text: 'Option6'
+            }]
+        }];
+ 
+        function toggle(){
+            var opts = $('#sm').sidemenu('options');
+            $('#sm').sidemenu(opts.collapsed ? 'expand' : 'collapse');
+            opts = $('#sm').sidemenu('options');
+            $('#sm').sidemenu('resize', {
+                width: opts.collapsed ? 60 : 200
+            })
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<table class="easyui-datagrid" title="DataGrid with Toolbar" style="width:700px;height:250px"
+            data-options="rownumbers:true,fit:true,singleSelect:true,url:'datagrid_data1.json',method:'get',toolbar:toolbar">
+        <thead>
+            <tr>
+                <th data-options="field:'itemid',width:80">系统名称</th>
+                <th data-options="field:'productid',width:100">系统类型</th>
+                <th data-options="field:'listprice',width:80,align:'right'">外网IP</th>
+                <th data-options="field:'unitcost',width:80,align:'right'">内网IP</th>
+                <th data-options="field:'attr1',width:240">运维人员</th>
+                <th data-options="field:'status',width:60,align:'center'">维护日志</th>
+            </tr>
+        </thead>
+    </table>
+    
+<script type="text/javascript">
+        var toolbar = [{
+            text:'Add',
+            iconCls:'icon-add',
+            handler:function(){alert('add')}
+        },{
+            text:'Cut',
+            iconCls:'icon-cut',
+            handler:function(){alert('cut')}
+        },'-',{
+            text:'Save',
+            iconCls:'icon-save',
+            handler:function(){alert('save')}
+        }];
+    </script>
