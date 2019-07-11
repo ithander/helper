@@ -7,13 +7,14 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-import org.ithang.tools.gener.ModTools;
-import org.ithang.tools.gener.ModelSQL;
+import org.apache.log4j.Logger;
 import org.ithang.tools.gener.MySQLGener;
 import org.springframework.jdbc.core.RowMapper;
 
 public class MService<T> extends BaseDao<T> {
 
+	private static Logger logger=Logger.getLogger(MService.class);
+	
 	@SuppressWarnings("unchecked")
 	public List<T> query(String SQLTemplate,Map<String,Object> bindData){
 		final Class<T> type=(Class<T>)((ParameterizedType)this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
@@ -30,7 +31,9 @@ public class MService<T> extends BaseDao<T> {
 						field.set(t, rs.getObject(field.getName()));
 					}
 				}catch(Exception e){
+					logger.error(e.getMessage());
 					e.printStackTrace();
+					
 				}
 				
 				return t;
@@ -64,6 +67,7 @@ public class MService<T> extends BaseDao<T> {
 						field.set(t, rs.getObject(field.getName()));
 					}
 				}catch(Exception e){
+					logger.error(e.getMessage());
 					e.printStackTrace();
 				}
 				
