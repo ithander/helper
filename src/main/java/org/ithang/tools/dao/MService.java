@@ -54,7 +54,7 @@ public class MService<T> extends BaseDao<T> {
 		qr.setTotal(total);//设置总记录数
 		
 		final Class<T> type=(Class<T>)((ParameterizedType)this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-		List<T> data=getJdbcTemplate().query(sql,new RowMapper<T>(){
+		List<T> data=getJdbcTemplate().query(sql+" limit "+(pageIndex<0?0:pageIndex-1)*pageSize+","+pageSize,new RowMapper<T>(){
 
 			@Override
 			public T mapRow(ResultSet rs, int index) throws SQLException {

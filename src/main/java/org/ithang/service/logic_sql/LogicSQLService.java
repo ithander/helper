@@ -25,12 +25,12 @@ public class LogicSQLService extends MService<LogicSQL>{
 	}
 	
 	/**
-	 * 综合查询相关数据
+	 * 综合查询相关数据带分页
 	 * @param logicSQL
 	 * @return
 	 */
 	public QueryResult<LogicSQL> query(LogicSQL logicSQL,int pageIndex,int pageSize){
-		return query(LogicSQLTemplate.getQuerySQL(), logicSQL.bindata(),pageIndex,pageSize);
+		return query(LogicSQLTemplate.getQuerySQL(), logicSQL.bindata(),pageIndex<=0?1:pageIndex,pageSize<=0?15:pageSize);
 	}
 	
 	
