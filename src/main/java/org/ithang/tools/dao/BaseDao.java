@@ -47,7 +47,11 @@ public class BaseDao<T> extends Dao {
 	 * @param bean
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public String insert(T bean){
+		final Class<T> type=(Class<T>)((ParameterizedType)this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+		String sql=ModTools.insert(type,bean);
+		getJdbcTemplate().update(sql);
 		return null;
 	}
 	
@@ -56,6 +60,7 @@ public class BaseDao<T> extends Dao {
 	 * @param bean
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public int update(T bean){
 		return 0;
 	}
@@ -65,6 +70,7 @@ public class BaseDao<T> extends Dao {
 	 * @param id
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
     public int delete(Integer... id){
     	return 0;
 	}
@@ -74,6 +80,7 @@ public class BaseDao<T> extends Dao {
      * @param id
      * @return
      */
+	@SuppressWarnings("unchecked")
 	public int delete(String... id){
 		return 0;
 	}

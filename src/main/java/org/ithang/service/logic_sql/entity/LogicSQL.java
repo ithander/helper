@@ -1,9 +1,10 @@
 package org.ithang.service.logic_sql.entity;
 
+import org.ithang.tools.gener.Entity;
 import org.ithang.tools.mate.Table;
 
 @Table("logic_sql")
-public class LogicSQL {
+public class LogicSQL extends Entity{
 
 	private String key;//key
 	private String content;//SQL

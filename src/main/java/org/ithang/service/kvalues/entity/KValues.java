@@ -1,9 +1,10 @@
 package org.ithang.service.kvalues.entity;
 
+import org.ithang.tools.gener.Entity;
 import org.ithang.tools.mate.Table;
 
 @Table("kvalues")
-public class KValues {
+public class KValues extends Entity{
 
 	private String key;//键
 	private String value;//值
@@ -27,6 +28,5 @@ public class KValues {
 	public void setOpt(String opt) {
 		this.opt = opt;
 	}
-	
 	
 }

@@ -23,6 +23,7 @@ class Test {
 						
 						print '==================================='
 						def bind=[clsName:"Person",fields:[[fieldType:"int",fieldName:"id"],[fieldType:"String",fieldName:"name"]]]
+					
 						template =engine.createTemplate(FTL.getBeanFTL());
 						Writable result= template.make(bind)
 						StringWriter sw = new StringWriter();

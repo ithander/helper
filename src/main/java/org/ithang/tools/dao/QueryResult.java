@@ -5,14 +5,44 @@ import java.util.List;
 public class QueryResult<T> {
 
 	
-	private Pager page;
-	private List<T> data;
+	private long pageIndex;//当前页号
+	private long pageSize;//每页记录数
+	private long pageNum;//总页数
+	private long total;//总记录数
+	private List<T> data;//当前查询的数据
 	
-	public Pager getPage() {
-		return page;
+	public QueryResult(){}
+	
+	public QueryResult(long pIndex,long pSize){
+		setPageIndex(pIndex);
+		setPageSize(pSize);
 	}
-	public void setPage(Pager page) {
-		this.page = page;
+	
+	public long getPageIndex() {
+		return pageIndex;
+	}
+	public void setPageIndex(long pageIndex) {
+		this.pageIndex = pageIndex;
+	}
+	public long getPageSize() {
+		return pageSize;
+	}
+	public void setPageSize(long pageSize) {
+		this.pageSize = pageSize;
+	}
+	public long getPageNum() {
+		return pageNum;
+	}
+	public long getTotal() {
+		return total;
+	}
+	public void setTotal(long total) {
+		this.total = total;
+		
+		if(total>0){
+			pageNum=total%pageSize>0?total/pageSize+1:total/pageSize;
+		}
+		
 	}
 	public List<T> getData() {
 		return data;
