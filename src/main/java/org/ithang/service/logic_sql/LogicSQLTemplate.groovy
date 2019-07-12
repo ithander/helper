@@ -6,13 +6,13 @@ class LogicSQLTemplate {
 	static def String querySQL='''
                        select `key`,`content`,`opt` from logic_sql where 1=1
                        <%if(null!=key){%>
-                        and `key`=${key}
+                        and `key`='${key}'
                        <%}%>
                        <%if(null!=content){%>
-                        and `content`=${content}
+                        and `content`='${content}'
                        <%}%>
                        <%if(null!=opt){%>
-                        and `opt`=${opt}
+                        and `opt`='${opt}'
                        <%}%>
                      ''' 
 	
