@@ -12,6 +12,8 @@ import org.ithang.tools.dao.Dao;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import freemarker.cache.StringTemplateLoader;
+import freemarker.template.Configuration;
 import groovy.lang.Writable;
 import groovy.text.SimpleTemplateEngine;
 import groovy.text.Template;
@@ -23,10 +25,17 @@ public class MySQLGener {
    private static Template beanTemplate=null;
    
    
+   private final static Configuration configuration = new Configuration(Configuration.getVersion());
+   private final static StringTemplateLoader loader=new StringTemplateLoader();
    static{
 	   try {
 		    engine = new groovy.text.SimpleTemplateEngine();
 		    beanTemplate=engine.createTemplate(FTL.getBeanFTL());
+		    
+		    
+		    configuration.setDefaultEncoding("utf-8");
+		    configuration.setTemplateLoader(loader);
+		    loader.putTemplate("personQuery", null);
 		} catch (CompilationFailedException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
