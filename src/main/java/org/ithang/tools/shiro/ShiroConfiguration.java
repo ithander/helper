@@ -39,6 +39,7 @@ public class ShiroConfiguration {
         map.put("/css/**","anon");
         map.put("/easyui/**","anon");
         map.put("/layui/**","anon");
+        map.put("/test/**","anon");
         map.put("/","anon");
         map.put("/**","authc");
         //登出

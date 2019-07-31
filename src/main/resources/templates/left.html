@@ -16,6 +16,7 @@
             </div>
             <div title="代码管理" data-options="iconCls:'icon-setup',selected:true">
 		        <ul class="easyui-tree">
+		            <li><a onclick="changeCenterPanel('code/apis')">接口管理</a> </li>
                     <li onclick="changeCenterPanel('code/beans')">业务实体</li>
                     <li onclick="changeCenterPanel('code/mappers')">MybatisMaper</li>
                     <li onclick="changeCenterPanel('code/xmls')">MybatisXML</li>
@@ -37,5 +38,6 @@
 <script type="text/javascript">
     function changeCenterPanel(url){
     	$('body').layout('panel','center').panel('refresh',url);
+    	console.log(1111)
     }
 </script>

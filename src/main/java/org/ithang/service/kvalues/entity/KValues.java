@@ -3,6 +3,9 @@ package org.ithang.service.kvalues.entity;
 import org.ithang.tools.gener.Entity;
 import org.ithang.tools.mate.Table;
 
+import groovy.transform.Canonical;
+
+@Canonical
 @Table("kvalues")
 public class KValues extends Entity{
 

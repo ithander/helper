@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>&nbsp;</title>
+</head>
+<body>
+	<table class="easyui-datagrid" title="接口管理" 
+			data-options="rownumbers:true,fit:true,singleSelect:true,url:'datagrid_data1.json',method:'get',toolbar:toolbar">
+		<thead>
+			<tr>
+				<th data-options="field:'url',width:80">url</th>
+				<th data-options="field:'params',width:100">传参</th>
+				<th data-options="field:'result',width:80,align:'right'">返回结果</th>
+				<th data-options="field:'script',width:80,align:'right'">处理脚本</th>
+				<th data-options="field:'doc',width:80,align:'right'">接口说明</th>
+				<th data-options="field:'test',width:80,align:'right'">测试</th>
+			</tr>
+		</thead>
+	</table>
+	<script type="text/javascript">
+		var toolbar = [{
+			text:'Add',
+			iconCls:'icon-add',
+			handler:function(){alert('add')}
+		},{
+			text:'Cut',
+			iconCls:'icon-cut',
+			handler:function(){alert('cut')}
+		},'-',{
+			text:'Save',
+			iconCls:'icon-save',
+			handler:function(){alert('save')}
+		}];
+	</script>
+</body>
+</html>

@@ -3,6 +3,9 @@ package org.ithang.service.logic_sql.entity;
 import org.ithang.tools.gener.Entity;
 import org.ithang.tools.mate.Table;
 
+import groovy.transform.Canonical;
+
+@Canonical
 @Table("logic_sql")
 public class LogicSQL extends Entity{
 
